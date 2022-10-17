@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newtodoapp/model/kendaraan.dart';
 import 'package:newtodoapp/screen/taskPage.dart';
-import 'package:newtodoapp/screen/widget.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Latihan CRUD"),
+        title: Text("Data Penjualan Kendaraan Bermotor"),
       ),
       body: Container(
           width: double.infinity,
@@ -49,7 +48,7 @@ class _homePageState extends State<homePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      "${newitem.merk} / $index",
+                                      "${newitem.merk} / ${newitem.typetran}",
                                       style: TextStyle(
                                           color: Colors.black87,
                                           fontSize: 22.0,

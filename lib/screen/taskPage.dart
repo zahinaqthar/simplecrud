@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:newtodoapp/model/kendaraan.dart';
 
 enum FormMode { create, edit }
@@ -17,8 +16,12 @@ class taskPage extends StatefulWidget {
 class _taskPageState extends State<taskPage> {
   TextEditingController merkcontroller = TextEditingController();
   TextEditingController modelcontroller = TextEditingController();
+  TextEditingController tipetrancontroller = TextEditingController();
   TextEditingController tahuncontroller = TextEditingController();
   TextEditingController hpcontroller = TextEditingController();
+
+  static final List<String> list = <String>['Matic', 'Manual', 'Sport'];
+  String dropdownValue = list.first;
 
   @override
   initState() {
@@ -26,6 +29,7 @@ class _taskPageState extends State<taskPage> {
     if (widget.mode == FormMode.edit) {
       merkcontroller.text = widget.konst!.merk;
       modelcontroller.text = widget.konst!.model;
+      dropdownValue = widget.konst!.typetran;
       tahuncontroller.text = widget.konst!.tahun;
       hpcontroller.text = widget.konst!.hp;
     }
@@ -35,6 +39,7 @@ class _taskPageState extends State<taskPage> {
     return kendaraan(
         merk: merkcontroller.text,
         model: modelcontroller.text,
+        typetran: dropdownValue,
         tahun: tahuncontroller.text,
         hp: hpcontroller.text);
   }
@@ -74,6 +79,62 @@ class _taskPageState extends State<taskPage> {
                               borderRadius: BorderRadius.circular(15))),
                     ),
                   ),
+                  Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(left: 50, bottom: 10),
+                            child: Text("Tipe"),
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Icon(Icons.handyman),
+                              Container(
+                                width: 310,
+                                padding: EdgeInsets.only(left: 12),
+                                margin: EdgeInsets.only(left: 17),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: Colors.white,
+                                    border: Border.all()),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                    value: dropdownValue,
+                                    elevation: 16,
+                                    style: const TextStyle(
+                                        color: Colors.black54, fontSize: 17),
+                                    onChanged: (String? value) {
+                                      // This is called when the user selects an item.
+                                      setState(() {
+                                        dropdownValue = value!;
+                                      });
+                                    },
+                                    items: list.map<DropdownMenuItem<String>>(
+                                        (String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+
+                      // child: TextFormField(
+                      //   controller: tipetrancontroller,
+                      //   decoration: InputDecoration(
+                      //       label: Text("Tipe Motor"),
+                      //       icon: Icon(Icons.handyman_outlined),
+                      //       border: OutlineInputBorder(
+                      //           borderRadius: BorderRadius.circular(15))),
+                      // ),
+                      ),
                   Container(
                     margin: EdgeInsets.only(bottom: 20),
                     child: TextFormField(
