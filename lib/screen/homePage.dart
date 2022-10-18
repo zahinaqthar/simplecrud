@@ -48,7 +48,7 @@ class _homePageState extends State<homePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      "${newitem.merk} / ${newitem.typetran}",
+                                      "${newitem.merk}",
                                       style: TextStyle(
                                           color: Colors.black87,
                                           fontSize: 22.0,
@@ -57,7 +57,16 @@ class _homePageState extends State<homePage> {
                                     Padding(
                                       padding: EdgeInsets.only(top: 5),
                                       child: Text(
-                                        "${newitem.model} / ${newitem.tahun} / ${newitem.hp}",
+                                        "${newitem.model}",
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 20.0),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 5),
+                                      child: Text(
+                                        "${newitem.typetran} / ${newitem.tahun} / ${newitem.hp}",
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.black87,
@@ -69,7 +78,7 @@ class _homePageState extends State<homePage> {
                               ),
                               Positioned(
                                 right: 0,
-                                top: 15,
+                                top: 25,
                                 child: Row(
                                   children: <Widget>[
                                     Container(

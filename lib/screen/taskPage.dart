@@ -16,7 +16,6 @@ class taskPage extends StatefulWidget {
 class _taskPageState extends State<taskPage> {
   TextEditingController merkcontroller = TextEditingController();
   TextEditingController modelcontroller = TextEditingController();
-  TextEditingController tipetrancontroller = TextEditingController();
   TextEditingController tahuncontroller = TextEditingController();
   TextEditingController hpcontroller = TextEditingController();
 
@@ -124,17 +123,7 @@ class _taskPageState extends State<taskPage> {
                             ],
                           ),
                         ],
-                      )
-
-                      // child: TextFormField(
-                      //   controller: tipetrancontroller,
-                      //   decoration: InputDecoration(
-                      //       label: Text("Tipe Motor"),
-                      //       icon: Icon(Icons.handyman_outlined),
-                      //       border: OutlineInputBorder(
-                      //           borderRadius: BorderRadius.circular(15))),
-                      // ),
-                      ),
+                      )),
                   Container(
                     margin: EdgeInsets.only(bottom: 20),
                     child: TextFormField(
