@@ -66,7 +66,7 @@ class _homePageState extends State<homePage> {
                                     Padding(
                                       padding: EdgeInsets.only(top: 5),
                                       child: Text(
-                                        "${newitem.typetran} / ${newitem.tahun} / ${newitem.hp}",
+                                        "${newitem.typetran} / ${newitem.tahun} / Rp.${newitem.hp}",
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.black87,

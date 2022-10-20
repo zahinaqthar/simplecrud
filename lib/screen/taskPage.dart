@@ -46,6 +46,7 @@ class _taskPageState extends State<taskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
             title: Text(widget.mode == FormMode.create
                 ? "Tambah Data Kendaraan"
